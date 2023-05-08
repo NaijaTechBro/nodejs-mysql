@@ -7,11 +7,19 @@ const corOptions = {
     origin: 'http://localhost:7890'
 }
 
+// routes
+
+const router = require('./routes/productRoutes')
+
+// middleware
+
 app.use(cors(corOptions))
 
 app.use(express.json())
 
 app.use(express.urlencoded({ extended: true}))
+
+app.use('/api/products', router)
 
 // Testing API
 app.get('/', (req, res) => {
