@@ -19,7 +19,7 @@ app.use(express.json())
 
 app.use(express.urlencoded({ extended: true}))
 
-app.use('/api/products', router)
+// app.use('/api/products', router)
 
 // Testing API
 app.get('/', (req, res) => {
