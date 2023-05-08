@@ -1,12 +1,14 @@
-const errorHandlerr = (err, req, res, next) => {
+const { logEvents } = require('./logger')
 
-    const statusCode = res.statusCode ? res.statusCode : 500
-    res.status(statusCode)
+const errorHandler = (err, req, res, next) => {
+    logEvents(`${err.name}: ${err.message}\t${req.method}\t${req.url}\t${req.headers.origin}`, 'errLog.log')
+    console.log(err.stack)
 
-    res.json({
-        message: err.message,
-        stack: process.env.NODE_ENV === "development" ? err.stack : null
-    })
-};
+    const status = res.statusCode ? res.statusCode : 500 // server error 
 
-module.exports = errorHandlerr;
+    res.status(status)
+
+    res.json({ message: err.message })
+}
+
+module.exports = errorHandler 
