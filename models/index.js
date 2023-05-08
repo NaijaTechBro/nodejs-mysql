@@ -17,3 +17,15 @@ const sequelize = new Sequelize(
         }
     }
 )
+
+// Authentication
+
+sequelize.authenticate()
+.then(() => {
+    console.log('mysql connection was successful...')
+})
+.catch(error => {
+    console.log('Error'+ error)
+})
+
+const db  = {}
