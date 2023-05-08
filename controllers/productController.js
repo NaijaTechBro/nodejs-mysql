@@ -20,3 +20,9 @@ const addProduct = async (req, res) => {
     const product = await Product.create(info)
     res.status(200).send(product)
 }
+
+// Get All Products
+const getAllproducts = async (req, res) => {
+    let products = await Product.findAll({})
+    res.status(200).send(products)
+}
