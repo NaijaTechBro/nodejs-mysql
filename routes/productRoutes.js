@@ -8,8 +8,6 @@ router.get('/allProducts', productController.getAllProducts);
 
 router.get('/published', productController.getPublishedProduct);
 
-router.post('/addProduct', productController.addProduct)
-
 
 router.get('/getOneProduct/:id', productController.getOneProduct);
 
