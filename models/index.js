@@ -1,5 +1,6 @@
 const dbConfig = require('../config/db.Config');
 const { Sequelize, DataTypes } = require('sequelize');
+const { logEvents } = require('../middleware/logger');
 
 const sequelize = new Sequelize(
     dbConfig.DB,
@@ -26,6 +27,7 @@ sequelize.authenticate()
 })
 .catch(error => {
     console.log('Error'+ error)
+    logEvents(`${error.no}: ${error.code}\t${error.syscall}\t${error.hostname}`, 'sqliErrlog.log')
 })
 
 const db  = {}
