@@ -1,4 +1,3 @@
-const cors = require('cors');
 const chalk = require('chalk');
 const app = require("./app");
 const PORT = process.env.PORT || PORT;
