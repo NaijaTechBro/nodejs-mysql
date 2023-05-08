@@ -26,3 +26,11 @@ const getAllproducts = async (req, res) => {
     let products = await Product.findAll({})
     res.status(200).send(products)
 }
+
+// Get Single Products
+const getOneproducts = async (req, res) => {
+    
+    let id = req.params.id
+    let products = await Product.findOne({ where: {id: id}})
+    res.status(200).send(products)
+}
